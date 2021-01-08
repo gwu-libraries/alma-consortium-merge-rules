@@ -1,0 +1,120 @@
+rule "Overlay all fields but local for Search External Resources"
+
+# Updated by Matthew Bright January 2020 to preserve fields with $5 as defined in Formatting Copy-Specific Metadata at https://www.libraries.wrlc.org/content/metadata-guidelines-and-policies-working-alma-network-zone
+# Opposite rule because external record is primary
+# Keeps local fields from both records, allowing us to use this rule when both records have local fields
+
+when
+  merge
+then
+
+  # Because the primary record in this case is the incoming "Search External" record, essentially all fields of the existing Alma (secondary) record are replaced except for what is defined below.
+
+  add MARC."009"
+  # Keeps the possible local 009 from the existing record.
+
+  add MARC."09"X
+  # Keeps all 09X fields from the existing record.
+
+  add MARC."246" when MARC."246"."5" contains "D"
+  add MARC."246" when MARC."246"."5" contains "E"
+  add MARC."246" when MARC."246"."5" contains "G"
+  add MARC."246" when MARC."246"."5" contains "L"
+  add MARC."246" when MARC."246"."5" contains "V"
+  # Keeps any 246 from the existing record if it includes a $5.
+
+  add MARC."541"
+  add MARC."561"
+  add MARC."562"
+  add MARC."563"
+  add MARC."583"
+  add MARC."584"
+  add MARC."585"
+  # Always keeps any 541, 561, 562, 563, 583, 584, 585 fields from the existing record with the idea that these will always be institution- or copy-specific, even if they don't include a $5.
+
+  add MARC."500" when MARC."500"."5" contains "D"
+  add MARC."500" when MARC."500"."5" contains "E"
+  add MARC."500" when MARC."500"."5" contains "G"
+  add MARC."500" when MARC."500"."5" contains "L"
+  add MARC."500" when MARC."500"."5" contains "V"
+
+  add MARC."501" when MARC."501"."5" contains "D"
+  add MARC."501" when MARC."501"."5" contains "E"
+  add MARC."501" when MARC."501"."5" contains "G"
+  add MARC."501" when MARC."501"."5" contains "L"
+  add MARC."501" when MARC."501"."5" contains "V"
+
+  add MARC."506" when MARC."506"."5" contains "D"
+  add MARC."506" when MARC."506"."5" contains "E"
+  add MARC."506" when MARC."506"."5" contains "G"
+  add MARC."506" when MARC."506"."5" contains "L"
+  add MARC."506" when MARC."506"."5" contains "V"
+
+  add MARC."526" when MARC."526"."5" contains "D"
+  add MARC."526" when MARC."526"."5" contains "E"
+  add MARC."526" when MARC."526"."5" contains "G"
+  add MARC."526" when MARC."526"."5" contains "L"
+  add MARC."526" when MARC."526"."5" contains "V"
+
+  add MARC."540" when MARC."540"."5" contains "D"
+  add MARC."540" when MARC."540"."5" contains "E"
+  add MARC."540" when MARC."540"."5" contains "G"
+  add MARC."540" when MARC."540"."5" contains "L"
+  add MARC."540" when MARC."540"."5" contains "V"
+
+  # Keeps 500, 501, 506, 526, and 540 from the existing record only if they are institution- or copy-specific and include $5.
+
+  add MARC."59"X
+  # Keeps all 59X fields from the existing record.
+
+  add MARC."655" when MARC."655"."5" contains "D"
+  add MARC."655" when MARC."655"."5" contains "E"
+  add MARC."655" when MARC."655"."5" contains "G"
+  add MARC."655" when MARC."655"."5" contains "L"
+  add MARC."655" when MARC."655"."5" contains "V"
+
+  add MARC."69"X
+  # Keeps all 69X fields from the existing. Keeps 655 fields from the existing record only if they include $5.
+
+  add MARC."700" when MARC."700"."5" contains "D"
+  add MARC."700" when MARC."700"."5" contains "E"
+  add MARC."700" when MARC."700"."5" contains "G"
+  add MARC."700" when MARC."700"."5" contains "L"
+  add MARC."700" when MARC."700"."5" contains "V"
+
+  add MARC."710" when MARC."710"."5" contains "D"
+  add MARC."710" when MARC."710"."5" contains "E"
+  add MARC."710" when MARC."710"."5" contains "G"
+  add MARC."710" when MARC."710"."5" contains "L"
+  add MARC."710" when MARC."710"."5" contains "V"
+
+  add MARC."711" when MARC."711"."5" contains "D"
+  add MARC."711" when MARC."711"."5" contains "E"
+  add MARC."711" when MARC."711"."5" contains "G"
+  add MARC."711" when MARC."711"."5" contains "L"
+  add MARC."711" when MARC."711"."5" contains "V"
+
+  add MARC."730" when MARC."730"."5" contains "D"
+  add MARC."730" when MARC."730"."5" contains "E"
+  add MARC."730" when MARC."730"."5" contains "G"
+  add MARC."730" when MARC."730"."5" contains "L"
+  add MARC."730" when MARC."730"."5" contains "V"
+
+  add MARC."740" when MARC."740"."5" contains "D"
+  add MARC."740" when MARC."740"."5" contains "E"
+  add MARC."740" when MARC."740"."5" contains "G"
+  add MARC."740" when MARC."740"."5" contains "L"
+  add MARC."740" when MARC."740"."5" contains "V"
+
+# Keeps 700, 710, 711, 730, and 740 from the existing record only if they include $5.
+
+  add MARC."9"XX 
+# Keeps all 9XX fields from the existing record.
+
+  add MARC."500" if does not exists
+  add MARC."505" if does not exists
+  add MARC."520" if does not exists
+# Keeps 500, 505, and 520 from the existing record only if they do not exist in the primary (external) record
+
+
+end
