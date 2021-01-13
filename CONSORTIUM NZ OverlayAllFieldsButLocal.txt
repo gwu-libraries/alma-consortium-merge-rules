@@ -1,5 +1,6 @@
 rule "Overlay all fields but local for Integration Profile, Import Profile, Combine and Merge Inventory"
 
+# Updated by Matthew Bright January 2021 to preserve subject headings with $5, used for consortial and local replacement subject headings.
 # Updated by Matthew Bright August 2019 to preserve fields with $5 as defined in Formatting Copy-Specific Metadata at https://www.libraries.wrlc.org/content/metadata-guidelines-and-policies-working-alma-network-zone
 # Keeps local fields from both records, allowing us to use this rule when both records have local fields
 
@@ -24,9 +25,13 @@ rule "Overlay all fields but local for Integration Profile, Import Profile, Comb
       remove MARC."526" if not exists subfield "5"
       remove MARC."540" if not exists subfield "5"
    # Keeps 500, 501, 506, 526, and 540 only if they are institution- or copy-specific and include $5.
-   remove MARC."6"XX excluding "655,69X"
+   remove MARC."6"XX excluding "600,610,650,651,655,69X"
+      remove MARC."600" if not exists subfield "5"
+      remove MARC."610" if not exists subfield "5"
+      remove MARC."650" if not exists subfield "5"
+      remove MARC."651" if not exists subfield "5"
       remove MARC."655" if not exists subfield "5"
-   # Keeps all 69X fields. Keeps 655 fields only if they include $5.
+   # Keeps all 69X fields. Keeps 600,610,650,651,655 fields only if they include $5.
    remove MARC."7"XX excluding "700,710,711,730,740"
       remove MARC."700" if not exists subfield "5"
       remove MARC."710" if not exists subfield "5"

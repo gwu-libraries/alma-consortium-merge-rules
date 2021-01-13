@@ -1,5 +1,6 @@
 rule "Overlay all fields but local for Search External Resources"
 
+# Updated by Matthew Bright January 2021 to preserve subject headings with $5, used for consortial and local replacement subject headings. Also adds "C" as a $5 to protect, covering WRLC symbol CAO.
 # Updated by Matthew Bright January 2020 to preserve fields with $5 as defined in Formatting Copy-Specific Metadata at https://www.libraries.wrlc.org/content/metadata-guidelines-and-policies-working-alma-network-zone
 # Opposite rule because external record is primary
 # Keeps local fields from both records, allowing us to use this rule when both records have local fields
@@ -16,6 +17,7 @@ then
   add MARC."09"X
   # Keeps all 09X fields from the existing record.
 
+  add MARC."246" when MARC."246"."5" contains "C"
   add MARC."246" when MARC."246"."5" contains "D"
   add MARC."246" when MARC."246"."5" contains "E"
   add MARC."246" when MARC."246"."5" contains "G"
@@ -32,30 +34,35 @@ then
   add MARC."585"
   # Always keeps any 541, 561, 562, 563, 583, 584, 585 fields from the existing record with the idea that these will always be institution- or copy-specific, even if they don't include a $5.
 
+  add MARC."500" when MARC."500"."5" contains "C"
   add MARC."500" when MARC."500"."5" contains "D"
   add MARC."500" when MARC."500"."5" contains "E"
   add MARC."500" when MARC."500"."5" contains "G"
   add MARC."500" when MARC."500"."5" contains "L"
   add MARC."500" when MARC."500"."5" contains "V"
 
+  add MARC."501" when MARC."501"."5" contains "C"
   add MARC."501" when MARC."501"."5" contains "D"
   add MARC."501" when MARC."501"."5" contains "E"
   add MARC."501" when MARC."501"."5" contains "G"
   add MARC."501" when MARC."501"."5" contains "L"
   add MARC."501" when MARC."501"."5" contains "V"
 
+  add MARC."506" when MARC."506"."5" contains "C"
   add MARC."506" when MARC."506"."5" contains "D"
   add MARC."506" when MARC."506"."5" contains "E"
   add MARC."506" when MARC."506"."5" contains "G"
   add MARC."506" when MARC."506"."5" contains "L"
   add MARC."506" when MARC."506"."5" contains "V"
 
+  add MARC."526" when MARC."526"."5" contains "C"
   add MARC."526" when MARC."526"."5" contains "D"
   add MARC."526" when MARC."526"."5" contains "E"
   add MARC."526" when MARC."526"."5" contains "G"
   add MARC."526" when MARC."526"."5" contains "L"
   add MARC."526" when MARC."526"."5" contains "V"
 
+  add MARC."540" when MARC."540"."5" contains "C"
   add MARC."540" when MARC."540"."5" contains "D"
   add MARC."540" when MARC."540"."5" contains "E"
   add MARC."540" when MARC."540"."5" contains "G"
@@ -67,6 +74,35 @@ then
   add MARC."59"X
   # Keeps all 59X fields from the existing record.
 
+  add MARC."600" when MARC."600"."5" contains "C"
+  add MARC."600" when MARC."600"."5" contains "D"
+  add MARC."600" when MARC."600"."5" contains "E"
+  add MARC."600" when MARC."600"."5" contains "G"
+  add MARC."600" when MARC."600"."5" contains "L"
+  add MARC."600" when MARC."600"."5" contains "V"
+
+  add MARC."610" when MARC."610"."5" contains "C"
+  add MARC."610" when MARC."610"."5" contains "D"
+  add MARC."610" when MARC."610"."5" contains "E"
+  add MARC."610" when MARC."610"."5" contains "G"
+  add MARC."610" when MARC."610"."5" contains "L"
+  add MARC."610" when MARC."610"."5" contains "V"
+
+  add MARC."650" when MARC."650"."5" contains "C"
+  add MARC."650" when MARC."650"."5" contains "D"
+  add MARC."650" when MARC."650"."5" contains "E"
+  add MARC."650" when MARC."650"."5" contains "G"
+  add MARC."650" when MARC."650"."5" contains "L"
+  add MARC."650" when MARC."650"."5" contains "V"
+
+  add MARC."651" when MARC."651"."5" contains "C"
+  add MARC."651" when MARC."651"."5" contains "D"
+  add MARC."651" when MARC."651"."5" contains "E"
+  add MARC."651" when MARC."651"."5" contains "G"
+  add MARC."651" when MARC."651"."5" contains "L"
+  add MARC."651" when MARC."651"."5" contains "V"
+
+  add MARC."655" when MARC."655"."5" contains "C"
   add MARC."655" when MARC."655"."5" contains "D"
   add MARC."655" when MARC."655"."5" contains "E"
   add MARC."655" when MARC."655"."5" contains "G"
@@ -74,32 +110,37 @@ then
   add MARC."655" when MARC."655"."5" contains "V"
 
   add MARC."69"X
-  # Keeps all 69X fields from the existing. Keeps 655 fields from the existing record only if they include $5.
+  # Keeps all 69X fields from the existing. Keeps 600,610,650,651,655 fields from the existing record only if they include $5.
 
+  add MARC."700" when MARC."700"."5" contains "C"
   add MARC."700" when MARC."700"."5" contains "D"
   add MARC."700" when MARC."700"."5" contains "E"
   add MARC."700" when MARC."700"."5" contains "G"
   add MARC."700" when MARC."700"."5" contains "L"
   add MARC."700" when MARC."700"."5" contains "V"
 
+  add MARC."710" when MARC."710"."5" contains "C"
   add MARC."710" when MARC."710"."5" contains "D"
   add MARC."710" when MARC."710"."5" contains "E"
   add MARC."710" when MARC."710"."5" contains "G"
   add MARC."710" when MARC."710"."5" contains "L"
   add MARC."710" when MARC."710"."5" contains "V"
 
+  add MARC."711" when MARC."711"."5" contains "C"
   add MARC."711" when MARC."711"."5" contains "D"
   add MARC."711" when MARC."711"."5" contains "E"
   add MARC."711" when MARC."711"."5" contains "G"
   add MARC."711" when MARC."711"."5" contains "L"
   add MARC."711" when MARC."711"."5" contains "V"
 
+  add MARC."730" when MARC."730"."5" contains "C"
   add MARC."730" when MARC."730"."5" contains "D"
   add MARC."730" when MARC."730"."5" contains "E"
   add MARC."730" when MARC."730"."5" contains "G"
   add MARC."730" when MARC."730"."5" contains "L"
   add MARC."730" when MARC."730"."5" contains "V"
 
+  add MARC."740" when MARC."740"."5" contains "C"
   add MARC."740" when MARC."740"."5" contains "D"
   add MARC."740" when MARC."740"."5" contains "E"
   add MARC."740" when MARC."740"."5" contains "G"
