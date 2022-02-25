@@ -1,0 +1,836 @@
+rule "Add local fields only"
+
+# Created by Matthew Bright February 2022 to add fields coded $9local and $5 in incoming records to matching existing NZ record. Existing record will remain untouched except for the addition of the local fields. Everything else in the incoming record will be ignored.
+# Keeps any local fields in the existing NZ record.
+
+when
+  merge
+then
+
+# --------------------------------------------------------------------------------
+# FIELDS WITH SUBFIELD 5 THAT INCLUDES A WRLC CONSORTIUM OR INSTITUTION MARC CODE
+# --------------------------------------------------------------------------------
+
+# 2XX with subfield 5
+
+  add MARC."246" when MARC."246"."5" contains "C"
+  add MARC."246" when MARC."246"."5" contains "D"
+  add MARC."246" when MARC."246"."5" contains "E"
+  add MARC."246" when MARC."246"."5" contains "G"
+  add MARC."246" when MARC."246"."5" contains "L"
+  add MARC."246" when MARC."246"."5" contains "V"
+
+# 5XX with subfield 5
+
+  add MARC."500" when MARC."500"."5" contains "C"
+  add MARC."500" when MARC."500"."5" contains "D"
+  add MARC."500" when MARC."500"."5" contains "E"
+  add MARC."500" when MARC."500"."5" contains "G"
+  add MARC."500" when MARC."500"."5" contains "L"
+  add MARC."500" when MARC."500"."5" contains "V"
+
+  add MARC."501" when MARC."501"."5" contains "C"
+  add MARC."501" when MARC."501"."5" contains "D"
+  add MARC."501" when MARC."501"."5" contains "E"
+  add MARC."501" when MARC."501"."5" contains "G"
+  add MARC."501" when MARC."501"."5" contains "L"
+  add MARC."501" when MARC."501"."5" contains "V"
+
+  add MARC."506" when MARC."506"."5" contains "C"
+  add MARC."506" when MARC."506"."5" contains "D"
+  add MARC."506" when MARC."506"."5" contains "E"
+  add MARC."506" when MARC."506"."5" contains "G"
+  add MARC."506" when MARC."506"."5" contains "L"
+  add MARC."506" when MARC."506"."5" contains "V"
+
+  add MARC."524" when MARC."524"."5" contains "C"
+  add MARC."524" when MARC."524"."5" contains "D"
+  add MARC."524" when MARC."524"."5" contains "E"
+  add MARC."524" when MARC."524"."5" contains "G"
+  add MARC."524" when MARC."524"."5" contains "L"
+  add MARC."524" when MARC."524"."5" contains "V"
+
+  add MARC."561" when MARC."561"."5" contains "C"
+  add MARC."561" when MARC."561"."5" contains "D"
+  add MARC."561" when MARC."561"."5" contains "E"
+  add MARC."561" when MARC."561"."5" contains "G"
+  add MARC."561" when MARC."561"."5" contains "L"
+  add MARC."561" when MARC."561"."5" contains "V"
+
+  add MARC."562" when MARC."562"."5" contains "C"
+  add MARC."562" when MARC."562"."5" contains "D"
+  add MARC."562" when MARC."562"."5" contains "E"
+  add MARC."562" when MARC."562"."5" contains "G"
+  add MARC."562" when MARC."562"."5" contains "L"
+  add MARC."562" when MARC."562"."5" contains "V"
+
+  add MARC."563" when MARC."563"."5" contains "C"
+  add MARC."563" when MARC."563"."5" contains "D"
+  add MARC."563" when MARC."563"."5" contains "E"
+  add MARC."563" when MARC."563"."5" contains "G"
+  add MARC."563" when MARC."563"."5" contains "L"
+  add MARC."563" when MARC."563"."5" contains "V"
+
+  add MARC."583" when MARC."583"."5" contains "C"
+  add MARC."583" when MARC."583"."5" contains "D"
+  add MARC."583" when MARC."583"."5" contains "E"
+  add MARC."583" when MARC."583"."5" contains "G"
+  add MARC."583" when MARC."583"."5" contains "L"
+  add MARC."583" when MARC."583"."5" contains "V"
+
+  add MARC."584" when MARC."584"."5" contains "C"
+  add MARC."584" when MARC."584"."5" contains "D"
+  add MARC."584" when MARC."584"."5" contains "E"
+  add MARC."584" when MARC."584"."5" contains "G"
+  add MARC."584" when MARC."584"."5" contains "L"
+  add MARC."584" when MARC."584"."5" contains "V"
+
+  add MARC."585" when MARC."585"."5" contains "C"
+  add MARC."585" when MARC."585"."5" contains "D"
+  add MARC."585" when MARC."585"."5" contains "E"
+  add MARC."585" when MARC."585"."5" contains "G"
+  add MARC."585" when MARC."585"."5" contains "L"
+  add MARC."585" when MARC."585"."5" contains "V"
+
+  add MARC."588" when MARC."588"."5" contains "C"
+  add MARC."588" when MARC."588"."5" contains "D"
+  add MARC."588" when MARC."588"."5" contains "E"
+  add MARC."588" when MARC."588"."5" contains "G"
+  add MARC."588" when MARC."588"."5" contains "L"
+  add MARC."588" when MARC."588"."5" contains "V"
+
+# 6XX with subfield 5
+
+  add MARC."600" when MARC."600"."5" contains "C"
+  add MARC."600" when MARC."600"."5" contains "D"
+  add MARC."600" when MARC."600"."5" contains "E"
+  add MARC."600" when MARC."600"."5" contains "G"
+  add MARC."600" when MARC."600"."5" contains "L"
+  add MARC."600" when MARC."600"."5" contains "V"
+
+  add MARC."610" when MARC."610"."5" contains "C"
+  add MARC."610" when MARC."610"."5" contains "D"
+  add MARC."610" when MARC."610"."5" contains "E"
+  add MARC."610" when MARC."610"."5" contains "G"
+  add MARC."610" when MARC."610"."5" contains "L"
+  add MARC."610" when MARC."610"."5" contains "V"
+
+  add MARC."611" when MARC."611"."5" contains "C"
+  add MARC."611" when MARC."611"."5" contains "D"
+  add MARC."611" when MARC."611"."5" contains "E"
+  add MARC."611" when MARC."611"."5" contains "G"
+  add MARC."611" when MARC."611"."5" contains "L"
+  add MARC."611" when MARC."611"."5" contains "V"
+
+  add MARC."630" when MARC."630"."5" contains "C"
+  add MARC."630" when MARC."630"."5" contains "D"
+  add MARC."630" when MARC."630"."5" contains "E"
+  add MARC."630" when MARC."630"."5" contains "G"
+  add MARC."630" when MARC."630"."5" contains "L"
+  add MARC."630" when MARC."630"."5" contains "V"
+
+  add MARC."647" when MARC."647"."5" contains "C"
+  add MARC."647" when MARC."647"."5" contains "D"
+  add MARC."647" when MARC."647"."5" contains "E"
+  add MARC."647" when MARC."647"."5" contains "G"
+  add MARC."647" when MARC."647"."5" contains "L"
+  add MARC."647" when MARC."647"."5" contains "V"
+
+  add MARC."648" when MARC."648"."5" contains "C"
+  add MARC."648" when MARC."648"."5" contains "D"
+  add MARC."648" when MARC."648"."5" contains "E"
+  add MARC."648" when MARC."648"."5" contains "G"
+  add MARC."648" when MARC."648"."5" contains "L"
+  add MARC."648" when MARC."648"."5" contains "V"
+
+  add MARC."650" when MARC."650"."5" contains "C"
+  add MARC."650" when MARC."650"."5" contains "D"
+  add MARC."650" when MARC."650"."5" contains "E"
+  add MARC."650" when MARC."650"."5" contains "G"
+  add MARC."650" when MARC."650"."5" contains "L"
+  add MARC."650" when MARC."650"."5" contains "V"
+
+  add MARC."651" when MARC."651"."5" contains "C"
+  add MARC."651" when MARC."651"."5" contains "D"
+  add MARC."651" when MARC."651"."5" contains "E"
+  add MARC."651" when MARC."651"."5" contains "G"
+  add MARC."651" when MARC."651"."5" contains "L"
+  add MARC."651" when MARC."651"."5" contains "V"
+
+  add MARC."655" when MARC."655"."5" contains "C"
+  add MARC."655" when MARC."655"."5" contains "D"
+  add MARC."655" when MARC."655"."5" contains "E"
+  add MARC."655" when MARC."655"."5" contains "G"
+  add MARC."655" when MARC."655"."5" contains "L"
+  add MARC."655" when MARC."655"."5" contains "V"
+
+# 7XX with subfield 5
+
+  add MARC."700" when MARC."700"."5" contains "C"
+  add MARC."700" when MARC."700"."5" contains "D"
+  add MARC."700" when MARC."700"."5" contains "E"
+  add MARC."700" when MARC."700"."5" contains "G"
+  add MARC."700" when MARC."700"."5" contains "L"
+  add MARC."700" when MARC."700"."5" contains "V"
+
+  add MARC."710" when MARC."710"."5" contains "C"
+  add MARC."710" when MARC."710"."5" contains "D"
+  add MARC."710" when MARC."710"."5" contains "E"
+  add MARC."710" when MARC."710"."5" contains "G"
+  add MARC."710" when MARC."710"."5" contains "L"
+  add MARC."710" when MARC."710"."5" contains "V"
+
+  add MARC."711" when MARC."711"."5" contains "C"
+  add MARC."711" when MARC."711"."5" contains "D"
+  add MARC."711" when MARC."711"."5" contains "E"
+  add MARC."711" when MARC."711"."5" contains "G"
+  add MARC."711" when MARC."711"."5" contains "L"
+  add MARC."711" when MARC."711"."5" contains "V"
+
+  add MARC."720" when MARC."720"."5" contains "C"
+  add MARC."720" when MARC."720"."5" contains "D"
+  add MARC."720" when MARC."720"."5" contains "E"
+  add MARC."720" when MARC."720"."5" contains "G"
+  add MARC."720" when MARC."720"."5" contains "L"
+  add MARC."720" when MARC."720"."5" contains "V"
+
+  add MARC."730" when MARC."730"."5" contains "C"
+  add MARC."730" when MARC."730"."5" contains "D"
+  add MARC."730" when MARC."730"."5" contains "E"
+  add MARC."730" when MARC."730"."5" contains "G"
+  add MARC."730" when MARC."730"."5" contains "L"
+  add MARC."730" when MARC."730"."5" contains "V"
+
+  add MARC."740" when MARC."740"."5" contains "C"
+  add MARC."740" when MARC."740"."5" contains "D"
+  add MARC."740" when MARC."740"."5" contains "E"
+  add MARC."740" when MARC."740"."5" contains "G"
+  add MARC."740" when MARC."740"."5" contains "L"
+  add MARC."740" when MARC."740"."5" contains "V"
+
+  add MARC."758" when MARC."758"."5" contains "C"
+  add MARC."758" when MARC."758"."5" contains "D"
+  add MARC."758" when MARC."758"."5" contains "E"
+  add MARC."758" when MARC."758"."5" contains "G"
+  add MARC."758" when MARC."758"."5" contains "L"
+  add MARC."758" when MARC."758"."5" contains "V"
+
+# --------------------------------------------------------------------------------
+# FIELDS WITH SUBFIELD 9 LOCAL
+# --------------------------------------------------------------------------------
+
+# 09X with subfield 5
+
+  add MARC."090" when MARC."090"."9" contains "local"
+  add MARC."090" when MARC."090"."9" contains "Local"
+  add MARC."090" when MARC."090"."9" contains "LOCAL"
+
+  add MARC."091" when MARC."091"."9" contains "local"
+  add MARC."091" when MARC."091"."9" contains "Local"
+  add MARC."091" when MARC."091"."9" contains "LOCAL"
+
+  add MARC."092" when MARC."092"."9" contains "local"
+  add MARC."092" when MARC."092"."9" contains "Local"
+  add MARC."092" when MARC."092"."9" contains "LOCAL"
+
+  add MARC."093" when MARC."093"."9" contains "local"
+  add MARC."093" when MARC."093"."9" contains "Local"
+  add MARC."093" when MARC."093"."9" contains "LOCAL"
+
+  add MARC."094" when MARC."094"."9" contains "local"
+  add MARC."094" when MARC."094"."9" contains "Local"
+  add MARC."094" when MARC."094"."9" contains "LOCAL"
+
+  add MARC."095" when MARC."095"."9" contains "local"
+  add MARC."095" when MARC."095"."9" contains "Local"
+  add MARC."095" when MARC."095"."9" contains "LOCAL"
+
+  add MARC."096" when MARC."096"."9" contains "local"
+  add MARC."096" when MARC."096"."9" contains "Local"
+  add MARC."096" when MARC."096"."9" contains "LOCAL"
+
+  add MARC."097" when MARC."097"."9" contains "local"
+  add MARC."097" when MARC."097"."9" contains "Local"
+  add MARC."097" when MARC."097"."9" contains "LOCAL"
+
+  add MARC."098" when MARC."098"."9" contains "local"
+  add MARC."098" when MARC."098"."9" contains "Local"
+  add MARC."098" when MARC."098"."9" contains "LOCAL"
+
+  add MARC."099" when MARC."099"."9" contains "local"
+  add MARC."099" when MARC."099"."9" contains "Local"
+  add MARC."099" when MARC."099"."9" contains "LOCAL"
+
+# 59X with subfield 5
+
+  add MARC."590" when MARC."590"."9" contains "local"
+  add MARC."590" when MARC."590"."9" contains "Local"
+  add MARC."590" when MARC."590"."9" contains "LOCAL"
+
+  add MARC."591" when MARC."591"."9" contains "local"
+  add MARC."591" when MARC."591"."9" contains "Local"
+  add MARC."591" when MARC."591"."9" contains "LOCAL"
+
+  add MARC."592" when MARC."592"."9" contains "local"
+  add MARC."592" when MARC."592"."9" contains "Local"
+  add MARC."592" when MARC."592"."9" contains "LOCAL"
+
+  add MARC."593" when MARC."593"."9" contains "local"
+  add MARC."593" when MARC."593"."9" contains "Local"
+  add MARC."593" when MARC."593"."9" contains "LOCAL"
+
+  add MARC."594" when MARC."594"."9" contains "local"
+  add MARC."594" when MARC."594"."9" contains "Local"
+  add MARC."594" when MARC."594"."9" contains "LOCAL"
+
+  add MARC."595" when MARC."595"."9" contains "local"
+  add MARC."595" when MARC."595"."9" contains "Local"
+  add MARC."595" when MARC."595"."9" contains "LOCAL"
+
+  add MARC."596" when MARC."596"."9" contains "local"
+  add MARC."596" when MARC."596"."9" contains "Local"
+  add MARC."596" when MARC."596"."9" contains "LOCAL"
+
+  add MARC."597" when MARC."597"."9" contains "local"
+  add MARC."597" when MARC."597"."9" contains "Local"
+  add MARC."597" when MARC."597"."9" contains "LOCAL"
+
+  add MARC."598" when MARC."598"."9" contains "local"
+  add MARC."598" when MARC."598"."9" contains "Local"
+  add MARC."598" when MARC."598"."9" contains "LOCAL"
+
+  add MARC."599" when MARC."599"."9" contains "local"
+  add MARC."599" when MARC."599"."9" contains "Local"
+  add MARC."599" when MARC."599"."9" contains "LOCAL"
+
+# 69X with subfield 5
+
+  add MARC."690" when MARC."690"."9" contains "local"
+  add MARC."690" when MARC."690"."9" contains "Local"
+  add MARC."690" when MARC."690"."9" contains "LOCAL"
+
+  add MARC."691" when MARC."691"."9" contains "local"
+  add MARC."691" when MARC."691"."9" contains "Local"
+  add MARC."691" when MARC."691"."9" contains "LOCAL"
+
+  add MARC."692" when MARC."692"."9" contains "local"
+  add MARC."692" when MARC."692"."9" contains "Local"
+  add MARC."692" when MARC."692"."9" contains "LOCAL"
+
+  add MARC."693" when MARC."693"."9" contains "local"
+  add MARC."693" when MARC."693"."9" contains "Local"
+  add MARC."693" when MARC."693"."9" contains "LOCAL"
+
+  add MARC."694" when MARC."694"."9" contains "local"
+  add MARC."694" when MARC."694"."9" contains "Local"
+  add MARC."694" when MARC."694"."9" contains "LOCAL"
+
+  add MARC."695" when MARC."695"."9" contains "local"
+  add MARC."695" when MARC."695"."9" contains "Local"
+  add MARC."695" when MARC."695"."9" contains "LOCAL"
+
+  add MARC."696" when MARC."696"."9" contains "local"
+  add MARC."696" when MARC."696"."9" contains "Local"
+  add MARC."696" when MARC."696"."9" contains "LOCAL"
+
+  add MARC."697" when MARC."697"."9" contains "local"
+  add MARC."697" when MARC."697"."9" contains "Local"
+  add MARC."697" when MARC."697"."9" contains "LOCAL"
+
+  add MARC."698" when MARC."698"."9" contains "local"
+  add MARC."698" when MARC."698"."9" contains "Local"
+  add MARC."698" when MARC."698"."9" contains "LOCAL"
+
+  add MARC."699" when MARC."699"."9" contains "local"
+  add MARC."699" when MARC."699"."9" contains "Local"
+  add MARC."699" when MARC."699"."9" contains "LOCAL"
+
+# 77X with subfield 5
+
+  add MARC."770" when MARC."770"."9" contains "local"
+  add MARC."770" when MARC."770"."9" contains "Local"
+  add MARC."770" when MARC."770"."9" contains "LOCAL"
+
+  add MARC."771" when MARC."771"."9" contains "local"
+  add MARC."771" when MARC."771"."9" contains "Local"
+  add MARC."771" when MARC."771"."9" contains "LOCAL"
+
+  add MARC."772" when MARC."772"."9" contains "local"
+  add MARC."772" when MARC."772"."9" contains "Local"
+  add MARC."772" when MARC."772"."9" contains "LOCAL"
+
+  add MARC."773" when MARC."773"."9" contains "local"
+  add MARC."773" when MARC."773"."9" contains "Local"
+  add MARC."773" when MARC."773"."9" contains "LOCAL"
+
+  add MARC."774" when MARC."774"."9" contains "local"
+  add MARC."774" when MARC."774"."9" contains "Local"
+  add MARC."774" when MARC."774"."9" contains "LOCAL"
+
+  add MARC."775" when MARC."775"."9" contains "local"
+  add MARC."775" when MARC."775"."9" contains "Local"
+  add MARC."775" when MARC."775"."9" contains "LOCAL"
+
+  add MARC."776" when MARC."776"."9" contains "local"
+  add MARC."776" when MARC."776"."9" contains "Local"
+  add MARC."776" when MARC."776"."9" contains "LOCAL"
+
+  add MARC."777" when MARC."777"."9" contains "local"
+  add MARC."777" when MARC."777"."9" contains "Local"
+  add MARC."777" when MARC."777"."9" contains "LOCAL"
+
+  add MARC."778" when MARC."778"."9" contains "local"
+  add MARC."778" when MARC."778"."9" contains "Local"
+  add MARC."778" when MARC."778"."9" contains "LOCAL"
+
+  add MARC."779" when MARC."779"."9" contains "local"
+  add MARC."779" when MARC."779"."9" contains "Local"
+  add MARC."779" when MARC."779"."9" contains "LOCAL"
+
+# 78X with subfield 5
+
+  add MARC."780" when MARC."780"."9" contains "local"
+  add MARC."780" when MARC."780"."9" contains "Local"
+  add MARC."780" when MARC."780"."9" contains "LOCAL"
+
+  add MARC."781" when MARC."781"."9" contains "local"
+  add MARC."781" when MARC."781"."9" contains "Local"
+  add MARC."781" when MARC."781"."9" contains "LOCAL"
+
+  add MARC."782" when MARC."782"."9" contains "local"
+  add MARC."782" when MARC."782"."9" contains "Local"
+  add MARC."782" when MARC."782"."9" contains "LOCAL"
+
+  add MARC."783" when MARC."783"."9" contains "local"
+  add MARC."783" when MARC."783"."9" contains "Local"
+  add MARC."783" when MARC."783"."9" contains "LOCAL"
+
+  add MARC."784" when MARC."784"."9" contains "local"
+  add MARC."784" when MARC."784"."9" contains "Local"
+  add MARC."784" when MARC."784"."9" contains "LOCAL"
+
+  add MARC."785" when MARC."785"."9" contains "local"
+  add MARC."785" when MARC."785"."9" contains "Local"
+  add MARC."785" when MARC."785"."9" contains "LOCAL"
+
+  add MARC."786" when MARC."786"."9" contains "local"
+  add MARC."786" when MARC."786"."9" contains "Local"
+  add MARC."786" when MARC."786"."9" contains "LOCAL"
+
+  add MARC."787" when MARC."787"."9" contains "local"
+  add MARC."787" when MARC."787"."9" contains "Local"
+  add MARC."787" when MARC."787"."9" contains "LOCAL"
+
+  add MARC."788" when MARC."788"."9" contains "local"
+  add MARC."788" when MARC."788"."9" contains "Local"
+  add MARC."788" when MARC."788"."9" contains "LOCAL"
+
+  add MARC."789" when MARC."789"."9" contains "local"
+  add MARC."789" when MARC."789"."9" contains "Local"
+  add MARC."789" when MARC."789"."9" contains "LOCAL"
+
+# 9XX with subfield 5
+
+  add MARC."900" when MARC."900"."9" contains "local"
+  add MARC."900" when MARC."900"."9" contains "Local"
+  add MARC."900" when MARC."900"."9" contains "LOCAL"
+
+  add MARC."901" when MARC."901"."9" contains "local"
+  add MARC."901" when MARC."901"."9" contains "Local"
+  add MARC."901" when MARC."901"."9" contains "LOCAL"
+
+  add MARC."902" when MARC."902"."9" contains "local"
+  add MARC."902" when MARC."902"."9" contains "Local"
+  add MARC."902" when MARC."902"."9" contains "LOCAL"
+
+  add MARC."903" when MARC."903"."9" contains "local"
+  add MARC."903" when MARC."903"."9" contains "Local"
+  add MARC."903" when MARC."903"."9" contains "LOCAL"
+
+  add MARC."904" when MARC."904"."9" contains "local"
+  add MARC."904" when MARC."904"."9" contains "Local"
+  add MARC."904" when MARC."904"."9" contains "LOCAL"
+
+  add MARC."905" when MARC."905"."9" contains "local"
+  add MARC."905" when MARC."905"."9" contains "Local"
+  add MARC."905" when MARC."905"."9" contains "LOCAL"
+
+  add MARC."906" when MARC."906"."9" contains "local"
+  add MARC."906" when MARC."906"."9" contains "Local"
+  add MARC."906" when MARC."906"."9" contains "LOCAL"
+
+  add MARC."907" when MARC."907"."9" contains "local"
+  add MARC."907" when MARC."907"."9" contains "Local"
+  add MARC."907" when MARC."907"."9" contains "LOCAL"
+
+  add MARC."908" when MARC."908"."9" contains "local"
+  add MARC."908" when MARC."908"."9" contains "Local"
+  add MARC."908" when MARC."908"."9" contains "LOCAL"
+
+  add MARC."909" when MARC."909"."9" contains "local"
+  add MARC."909" when MARC."909"."9" contains "Local"
+  add MARC."909" when MARC."909"."9" contains "LOCAL"
+
+  add MARC."910" when MARC."910"."9" contains "local"
+  add MARC."910" when MARC."910"."9" contains "Local"
+  add MARC."910" when MARC."910"."9" contains "LOCAL"
+
+  add MARC."911" when MARC."911"."9" contains "local"
+  add MARC."911" when MARC."911"."9" contains "Local"
+  add MARC."911" when MARC."911"."9" contains "LOCAL"
+
+  add MARC."912" when MARC."912"."9" contains "local"
+  add MARC."912" when MARC."912"."9" contains "Local"
+  add MARC."912" when MARC."912"."9" contains "LOCAL"
+
+  add MARC."913" when MARC."913"."9" contains "local"
+  add MARC."913" when MARC."913"."9" contains "Local"
+  add MARC."913" when MARC."913"."9" contains "LOCAL"
+
+  add MARC."914" when MARC."914"."9" contains "local"
+  add MARC."914" when MARC."914"."9" contains "Local"
+  add MARC."914" when MARC."914"."9" contains "LOCAL"
+
+  add MARC."915" when MARC."915"."9" contains "local"
+  add MARC."915" when MARC."915"."9" contains "Local"
+  add MARC."915" when MARC."915"."9" contains "LOCAL"
+
+  add MARC."916" when MARC."916"."9" contains "local"
+  add MARC."916" when MARC."916"."9" contains "Local"
+  add MARC."916" when MARC."916"."9" contains "LOCAL"
+
+  add MARC."917" when MARC."917"."9" contains "local"
+  add MARC."917" when MARC."917"."9" contains "Local"
+  add MARC."917" when MARC."917"."9" contains "LOCAL"
+
+  add MARC."918" when MARC."918"."9" contains "local"
+  add MARC."918" when MARC."918"."9" contains "Local"
+  add MARC."918" when MARC."918"."9" contains "LOCAL"
+
+  add MARC."919" when MARC."919"."9" contains "local"
+  add MARC."919" when MARC."919"."9" contains "Local"
+  add MARC."919" when MARC."919"."9" contains "LOCAL"
+
+  add MARC."920" when MARC."920"."9" contains "local"
+  add MARC."920" when MARC."920"."9" contains "Local"
+  add MARC."920" when MARC."920"."9" contains "LOCAL"
+
+  add MARC."921" when MARC."921"."9" contains "local"
+  add MARC."921" when MARC."921"."9" contains "Local"
+  add MARC."921" when MARC."921"."9" contains "LOCAL"
+
+  add MARC."922" when MARC."922"."9" contains "local"
+  add MARC."922" when MARC."922"."9" contains "Local"
+  add MARC."922" when MARC."922"."9" contains "LOCAL"
+
+  add MARC."923" when MARC."923"."9" contains "local"
+  add MARC."923" when MARC."923"."9" contains "Local"
+  add MARC."923" when MARC."923"."9" contains "LOCAL"
+
+  add MARC."924" when MARC."924"."9" contains "local"
+  add MARC."924" when MARC."924"."9" contains "Local"
+  add MARC."924" when MARC."924"."9" contains "LOCAL"
+
+  add MARC."925" when MARC."925"."9" contains "local"
+  add MARC."925" when MARC."925"."9" contains "Local"
+  add MARC."925" when MARC."925"."9" contains "LOCAL"
+
+  add MARC."926" when MARC."926"."9" contains "local"
+  add MARC."926" when MARC."926"."9" contains "Local"
+  add MARC."926" when MARC."926"."9" contains "LOCAL"
+
+  add MARC."927" when MARC."927"."9" contains "local"
+  add MARC."927" when MARC."927"."9" contains "Local"
+  add MARC."927" when MARC."927"."9" contains "LOCAL"
+
+  add MARC."928" when MARC."928"."9" contains "local"
+  add MARC."928" when MARC."928"."9" contains "Local"
+  add MARC."928" when MARC."928"."9" contains "LOCAL"
+
+  add MARC."929" when MARC."929"."9" contains "local"
+  add MARC."929" when MARC."929"."9" contains "Local"
+  add MARC."929" when MARC."929"."9" contains "LOCAL"
+
+  add MARC."930" when MARC."930"."9" contains "local"
+  add MARC."930" when MARC."930"."9" contains "Local"
+  add MARC."930" when MARC."930"."9" contains "LOCAL"
+
+  add MARC."931" when MARC."931"."9" contains "local"
+  add MARC."931" when MARC."931"."9" contains "Local"
+  add MARC."931" when MARC."931"."9" contains "LOCAL"
+
+  add MARC."932" when MARC."932"."9" contains "local"
+  add MARC."932" when MARC."932"."9" contains "Local"
+  add MARC."932" when MARC."932"."9" contains "LOCAL"
+
+  add MARC."933" when MARC."933"."9" contains "local"
+  add MARC."933" when MARC."933"."9" contains "Local"
+  add MARC."933" when MARC."933"."9" contains "LOCAL"
+
+  add MARC."934" when MARC."934"."9" contains "local"
+  add MARC."934" when MARC."934"."9" contains "Local"
+  add MARC."934" when MARC."934"."9" contains "LOCAL"
+
+  add MARC."935" when MARC."935"."9" contains "local"
+  add MARC."935" when MARC."935"."9" contains "Local"
+  add MARC."935" when MARC."935"."9" contains "LOCAL"
+
+  add MARC."936" when MARC."936"."9" contains "local"
+  add MARC."936" when MARC."936"."9" contains "Local"
+  add MARC."936" when MARC."936"."9" contains "LOCAL"
+
+  add MARC."937" when MARC."937"."9" contains "local"
+  add MARC."937" when MARC."937"."9" contains "Local"
+  add MARC."937" when MARC."937"."9" contains "LOCAL"
+
+  add MARC."938" when MARC."938"."9" contains "local"
+  add MARC."938" when MARC."938"."9" contains "Local"
+  add MARC."938" when MARC."938"."9" contains "LOCAL"
+
+  add MARC."939" when MARC."939"."9" contains "local"
+  add MARC."939" when MARC."939"."9" contains "Local"
+  add MARC."939" when MARC."939"."9" contains "LOCAL"
+
+  add MARC."940" when MARC."940"."9" contains "local"
+  add MARC."940" when MARC."940"."9" contains "Local"
+  add MARC."940" when MARC."940"."9" contains "LOCAL"
+
+  add MARC."941" when MARC."941"."9" contains "local"
+  add MARC."941" when MARC."941"."9" contains "Local"
+  add MARC."941" when MARC."941"."9" contains "LOCAL"
+
+  add MARC."942" when MARC."942"."9" contains "local"
+  add MARC."942" when MARC."942"."9" contains "Local"
+  add MARC."942" when MARC."942"."9" contains "LOCAL"
+
+  add MARC."943" when MARC."943"."9" contains "local"
+  add MARC."943" when MARC."943"."9" contains "Local"
+  add MARC."943" when MARC."943"."9" contains "LOCAL"
+
+  add MARC."944" when MARC."944"."9" contains "local"
+  add MARC."944" when MARC."944"."9" contains "Local"
+  add MARC."944" when MARC."944"."9" contains "LOCAL"
+
+  add MARC."945" when MARC."945"."9" contains "local"
+  add MARC."945" when MARC."945"."9" contains "Local"
+  add MARC."945" when MARC."945"."9" contains "LOCAL"
+
+  add MARC."946" when MARC."946"."9" contains "local"
+  add MARC."946" when MARC."946"."9" contains "Local"
+  add MARC."946" when MARC."946"."9" contains "LOCAL"
+
+  add MARC."947" when MARC."947"."9" contains "local"
+  add MARC."947" when MARC."947"."9" contains "Local"
+  add MARC."947" when MARC."947"."9" contains "LOCAL"
+
+  add MARC."948" when MARC."948"."9" contains "local"
+  add MARC."948" when MARC."948"."9" contains "Local"
+  add MARC."948" when MARC."948"."9" contains "LOCAL"
+
+  add MARC."949" when MARC."949"."9" contains "local"
+  add MARC."949" when MARC."949"."9" contains "Local"
+  add MARC."949" when MARC."949"."9" contains "LOCAL"
+
+  add MARC."950" when MARC."950"."9" contains "local"
+  add MARC."950" when MARC."950"."9" contains "Local"
+  add MARC."950" when MARC."950"."9" contains "LOCAL"
+
+  add MARC."951" when MARC."951"."9" contains "local"
+  add MARC."951" when MARC."951"."9" contains "Local"
+  add MARC."951" when MARC."951"."9" contains "LOCAL"
+
+  add MARC."952" when MARC."952"."9" contains "local"
+  add MARC."952" when MARC."952"."9" contains "Local"
+  add MARC."952" when MARC."952"."9" contains "LOCAL"
+
+  add MARC."953" when MARC."953"."9" contains "local"
+  add MARC."953" when MARC."953"."9" contains "Local"
+  add MARC."953" when MARC."953"."9" contains "LOCAL"
+
+  add MARC."954" when MARC."954"."9" contains "local"
+  add MARC."954" when MARC."954"."9" contains "Local"
+  add MARC."954" when MARC."954"."9" contains "LOCAL"
+
+  add MARC."955" when MARC."955"."9" contains "local"
+  add MARC."955" when MARC."955"."9" contains "Local"
+  add MARC."955" when MARC."955"."9" contains "LOCAL"
+
+  add MARC."956" when MARC."956"."9" contains "local"
+  add MARC."956" when MARC."956"."9" contains "Local"
+  add MARC."956" when MARC."956"."9" contains "LOCAL"
+
+  add MARC."957" when MARC."957"."9" contains "local"
+  add MARC."957" when MARC."957"."9" contains "Local"
+  add MARC."957" when MARC."957"."9" contains "LOCAL"
+
+  add MARC."958" when MARC."958"."9" contains "local"
+  add MARC."958" when MARC."958"."9" contains "Local"
+  add MARC."958" when MARC."958"."9" contains "LOCAL"
+
+  add MARC."959" when MARC."959"."9" contains "local"
+  add MARC."959" when MARC."959"."9" contains "Local"
+  add MARC."959" when MARC."959"."9" contains "LOCAL"
+
+  add MARC."960" when MARC."960"."9" contains "local"
+  add MARC."960" when MARC."960"."9" contains "Local"
+  add MARC."960" when MARC."960"."9" contains "LOCAL"
+
+  add MARC."961" when MARC."961"."9" contains "local"
+  add MARC."961" when MARC."961"."9" contains "Local"
+  add MARC."961" when MARC."961"."9" contains "LOCAL"
+
+  add MARC."962" when MARC."962"."9" contains "local"
+  add MARC."962" when MARC."962"."9" contains "Local"
+  add MARC."962" when MARC."962"."9" contains "LOCAL"
+
+  add MARC."963" when MARC."963"."9" contains "local"
+  add MARC."963" when MARC."963"."9" contains "Local"
+  add MARC."963" when MARC."963"."9" contains "LOCAL"
+
+  add MARC."964" when MARC."964"."9" contains "local"
+  add MARC."964" when MARC."964"."9" contains "Local"
+  add MARC."964" when MARC."964"."9" contains "LOCAL"
+
+  add MARC."965" when MARC."965"."9" contains "local"
+  add MARC."965" when MARC."965"."9" contains "Local"
+  add MARC."965" when MARC."965"."9" contains "LOCAL"
+
+  add MARC."966" when MARC."966"."9" contains "local"
+  add MARC."966" when MARC."966"."9" contains "Local"
+  add MARC."966" when MARC."966"."9" contains "LOCAL"
+
+  add MARC."967" when MARC."967"."9" contains "local"
+  add MARC."967" when MARC."967"."9" contains "Local"
+  add MARC."967" when MARC."967"."9" contains "LOCAL"
+
+  add MARC."968" when MARC."968"."9" contains "local"
+  add MARC."968" when MARC."968"."9" contains "Local"
+  add MARC."968" when MARC."968"."9" contains "LOCAL"
+
+  add MARC."969" when MARC."969"."9" contains "local"
+  add MARC."969" when MARC."969"."9" contains "Local"
+  add MARC."969" when MARC."969"."9" contains "LOCAL"
+
+  add MARC."970" when MARC."970"."9" contains "local"
+  add MARC."970" when MARC."970"."9" contains "Local"
+  add MARC."970" when MARC."970"."9" contains "LOCAL"
+
+  add MARC."971" when MARC."971"."9" contains "local"
+  add MARC."971" when MARC."971"."9" contains "Local"
+  add MARC."971" when MARC."971"."9" contains "LOCAL"
+
+  add MARC."972" when MARC."972"."9" contains "local"
+  add MARC."972" when MARC."972"."9" contains "Local"
+  add MARC."972" when MARC."972"."9" contains "LOCAL"
+
+  add MARC."973" when MARC."973"."9" contains "local"
+  add MARC."973" when MARC."973"."9" contains "Local"
+  add MARC."973" when MARC."973"."9" contains "LOCAL"
+
+  add MARC."974" when MARC."974"."9" contains "local"
+  add MARC."974" when MARC."974"."9" contains "Local"
+  add MARC."974" when MARC."974"."9" contains "LOCAL"
+
+  add MARC."975" when MARC."975"."9" contains "local"
+  add MARC."975" when MARC."975"."9" contains "Local"
+  add MARC."975" when MARC."975"."9" contains "LOCAL"
+
+  add MARC."976" when MARC."976"."9" contains "local"
+  add MARC."976" when MARC."976"."9" contains "Local"
+  add MARC."976" when MARC."976"."9" contains "LOCAL"
+
+  add MARC."977" when MARC."977"."9" contains "local"
+  add MARC."977" when MARC."977"."9" contains "Local"
+  add MARC."977" when MARC."977"."9" contains "LOCAL"
+
+  add MARC."978" when MARC."978"."9" contains "local"
+  add MARC."978" when MARC."978"."9" contains "Local"
+  add MARC."978" when MARC."978"."9" contains "LOCAL"
+
+  add MARC."979" when MARC."979"."9" contains "local"
+  add MARC."979" when MARC."979"."9" contains "Local"
+  add MARC."979" when MARC."979"."9" contains "LOCAL"
+
+  add MARC."980" when MARC."980"."9" contains "local"
+  add MARC."980" when MARC."980"."9" contains "Local"
+  add MARC."980" when MARC."980"."9" contains "LOCAL"
+
+  add MARC."981" when MARC."981"."9" contains "local"
+  add MARC."981" when MARC."981"."9" contains "Local"
+  add MARC."981" when MARC."981"."9" contains "LOCAL"
+
+  add MARC."982" when MARC."982"."9" contains "local"
+  add MARC."982" when MARC."982"."9" contains "Local"
+  add MARC."982" when MARC."982"."9" contains "LOCAL"
+
+  add MARC."983" when MARC."983"."9" contains "local"
+  add MARC."983" when MARC."983"."9" contains "Local"
+  add MARC."983" when MARC."983"."9" contains "LOCAL"
+
+  add MARC."984" when MARC."984"."9" contains "local"
+  add MARC."984" when MARC."984"."9" contains "Local"
+  add MARC."984" when MARC."984"."9" contains "LOCAL"
+
+  add MARC."985" when MARC."985"."9" contains "local"
+  add MARC."985" when MARC."985"."9" contains "Local"
+  add MARC."985" when MARC."985"."9" contains "LOCAL"
+
+  add MARC."986" when MARC."986"."9" contains "local"
+  add MARC."986" when MARC."986"."9" contains "Local"
+  add MARC."986" when MARC."986"."9" contains "LOCAL"
+
+  add MARC."987" when MARC."987"."9" contains "local"
+  add MARC."987" when MARC."987"."9" contains "Local"
+  add MARC."987" when MARC."987"."9" contains "LOCAL"
+
+  add MARC."988" when MARC."988"."9" contains "local"
+  add MARC."988" when MARC."988"."9" contains "Local"
+  add MARC."988" when MARC."988"."9" contains "LOCAL"
+
+  add MARC."989" when MARC."989"."9" contains "local"
+  add MARC."989" when MARC."989"."9" contains "Local"
+  add MARC."989" when MARC."989"."9" contains "LOCAL"
+
+  add MARC."990" when MARC."990"."9" contains "local"
+  add MARC."990" when MARC."990"."9" contains "Local"
+  add MARC."990" when MARC."990"."9" contains "LOCAL"
+
+  add MARC."991" when MARC."991"."9" contains "local"
+  add MARC."991" when MARC."991"."9" contains "Local"
+  add MARC."991" when MARC."991"."9" contains "LOCAL"
+
+  add MARC."992" when MARC."992"."9" contains "local"
+  add MARC."992" when MARC."992"."9" contains "Local"
+  add MARC."992" when MARC."992"."9" contains "LOCAL"
+
+  add MARC."993" when MARC."993"."9" contains "local"
+  add MARC."993" when MARC."993"."9" contains "Local"
+  add MARC."993" when MARC."993"."9" contains "LOCAL"
+
+  add MARC."994" when MARC."994"."9" contains "local"
+  add MARC."994" when MARC."994"."9" contains "Local"
+  add MARC."994" when MARC."994"."9" contains "LOCAL"
+
+  add MARC."995" when MARC."995"."9" contains "local"
+  add MARC."995" when MARC."995"."9" contains "Local"
+  add MARC."995" when MARC."995"."9" contains "LOCAL"
+
+  add MARC."996" when MARC."996"."9" contains "local"
+  add MARC."996" when MARC."996"."9" contains "Local"
+  add MARC."996" when MARC."996"."9" contains "LOCAL"
+
+  add MARC."997" when MARC."997"."9" contains "local"
+  add MARC."997" when MARC."997"."9" contains "Local"
+  add MARC."997" when MARC."997"."9" contains "LOCAL"
+
+  add MARC."998" when MARC."998"."9" contains "local"
+  add MARC."998" when MARC."998"."9" contains "Local"
+  add MARC."998" when MARC."998"."9" contains "LOCAL"
+
+  add MARC."999" when MARC."999"."9" contains "local"
+  add MARC."999" when MARC."999"."9" contains "Local"
+  add MARC."999" when MARC."999"."9" contains "LOCAL"
+
+
+
+end
